@@ -18,13 +18,18 @@ for line in genres_column:
             genres[genre] += 1
 
 df = pd.DataFrame.from_dict(genres, orient="index")
+
 df.plot(kind="bar")
-pyplot.show()
+pyplot.draw()
+
 
 
 ratings_uri = "https://raw.githubusercontent.com/alura-cursos/introducao-a-data-science/master/aula1.2/ratings.csv"
 ratings = pd.read_csv(ratings_uri)
 ratings.columns = ["userId", "movieId", "rating", "title"]
 rating_column = ratings["rating"]
-#rating_column.plot(kind="hist")
-#matplotlib.pyplot.show()
+
+pyplot.figure(4)
+rating_column.plot(kind="hist")
+pyplot.draw()
+pyplot.show()
